@@ -6,7 +6,8 @@ int Compute_Factorial(int);
 
 int main()
 {
-	int i, num_lines, factorial_to_compute, factorial;	
+	int i, num_lines, factorial_to_compute;
+	unsigned long long factorial;	
 	
 	num_lines = How_Many_Lines();
 		
@@ -18,7 +19,8 @@ int main()
 		factorial = Compute_Factorial(factorial_to_compute);	
 		
 		//print last digit of factorial	
-		printf("%d\n", factorial % 10  );		
+		printf("%llu\n", factorial % 10  );		
+	
 	}	
 	
 
@@ -28,16 +30,13 @@ int main()
 //-------------------------------------------------------------
 int Compute_Factorial(int factorial_to_compute)
 {
-	int i, factorial;
-	if (factorial_to_compute<3)
-		return factorial_to_compute;	
+	int i;
+	unsigned long long factorial=1;
 
-	for (i=factorial_to_compute; i>2; i--)
+	for (i=factorial_to_compute; i>1; i--)
 	{
-		factorial += factorial_to_compute * (factorial_to_compute-1);
-	}
-	 	
-	
+		factorial *= i ;
+	}	
 	return factorial;	
 } 
 
